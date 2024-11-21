@@ -110,24 +110,38 @@ PB2podminkaA = (PApodminkaB1*PB1) / vysledek
 #     pokud zasahnou 2 strelzi, P(Z) = 0.8
 #     pokud zasahne 1 strelec, P(Z) = 0.4
 
+# Xi --> zásah i tým počtu ran 
+
 # -> Jaka je pravdepodobnost zniceni cile?
 
+pA <- 0.8
+pB <- 0.6
+pC <- 0.5
 
-
-
+pAn <- 1 - pA
+pBn <- 1 - pB
+pCn <- 1 - pC
 
 # Dalsi znaceni: Xi = zasah i-tym poctem strelcu (X0 = 0 strelcu, X1 = 1 zasahne, X2 = 2 zasahnou, X3 = 3 zasahnou)
 
-
-
+pZpodmX0 <- 0 #netrefí se nikdo 
+pZpodmX1 <- 0.4
+pZpodmX2 <- 0.8
+pZpodmX2 <- 1
 
 
 # Dale potrebujeme spocitat pravdepodobnosti zasahu Xi:
 
+pX0 <- 0.2*0.4*0.5 #Nikdo se netrefí 
+pX1 <- pA * pBn * pCn + pAn * pB * pCn + pAn * pBn * pC
+pX2 <- pA * pB * pCn + pAn * pB * pC + pA * pBn * pC
+pX3 <- pA * pB * pC
 
 
 
 # Pravdepodobnost zniceni cile -> veta o uplne pravdepodobnosti
+
+pZ <- (pX2 * pZpodmX2)
 
 
 
